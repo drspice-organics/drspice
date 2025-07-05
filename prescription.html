@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescriptions - DrSpice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-green-700 text-white p-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">DrSpice | Prescriptions</h1>
+      <a href="index.html" class="text-sm hover:underline">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-6 text-center">Download Herbal Prescriptions</h2>
+
+    <!-- Search Bar -->
+    <div class="mb-6">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search prescriptions..."
+        class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-green-300"
+      />
+    </div>
+
+    <!-- File List -->
+    <ul id="fileList" class="space-y-4">
+      <!-- JS will inject list items here -->
+    </ul>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-center px-4 py-8 mt-10">
+    <p class="text-sm">
+      &copy; 2025 DrSpice Organics. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    const folder = "prescription/";
+    const files = [
+      { name: "fertility-guide.pdf", label: "Fertility Guide Prescription" },
+      { name: "gut-cleanse.pdf", label: "Gut Cleanse Prescription" },
+      { name: "liver-detox.pdf", label: "Liver Detox Prescription" },
+      { name: "blood-pressure.pdf", label: "Blood Pressure Herbal Plan" },
+      { name: "weight-control.pdf", label: "Weight Control Prescription" }
+    ];
+
+    const fileList = document.getElementById("fileList");
+    const searchInput = document.getElementById("searchInput");
+
+    function renderList(filter = "") {
+      fileList.innerHTML = "";
+
+      const filtered = files.filter(f =>
+        f.label.toLowerCase().includes(filter.toLowerCase())
+      );
+
+      if (filtered.length === 0) {
+        fileList.innerHTML = `<p class="text-center text-gray-500">No prescriptions found.</p>`;
+        return;
+      }
+
+      filtered.forEach(file => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <div class="bg-white p-4 rounded shadow flex justify-between items-center">
+            <span class="font-medium">${file.label}</span>
+            <div class="space-x-3">
+              <a href="${folder + file.name}" target="_blank" class="text-green-600 hover:underline text-sm">View</a>
+              <a href="${folder + file.name}" download class="text-blue-600 hover:underline text-sm">Download</a>
+            </div>
+          </div>
+        `;
+        fileList.appendChild(li);
+      });
+    }
+
+    renderList();
+
+    searchInput.addEventListener("input", e => {
+      renderList(e.target.value);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - DrSpice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-green-700 text-white p-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">DrSpice | Contact Us</h1>
+      <a href="index.html" class="text-sm hover:underline">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
+
+    <!-- Contact Info -->
+    <div class="bg-white p-6 rounded-lg shadow mb-12">
+      <h3 class="text-xl font-semibold mb-4">Our Locations</h3>
+      <ul class="space-y-2 text-gray-700 text-md">
+        <li><strong>Nairobi:</strong> Nacico Chambers, 3rd Floor, Moi Avenue — 📞 +254 727 175 708</li>
+        <li><strong>Nakuru:</strong> Ereto Plaza, 6th Floor, Above Safaricom — 📞 +254 726 760 517</li>
+        <li><strong>Kiambu (Ruiru):</strong> Opposite Spur Mall — 📞 +254 113 853 878</li>
+        <li><strong>Email:</strong> <a href="mailto:admin@drspiceorganics.com" class="text-green-700 underline">admin@drspiceorganics.com</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="bg-gray-100 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
+      <form action="#" method="POST" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1" for="name">Full Name</label>
+          <input type="text" id="name" name="name" required
+                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-green-300" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="email">Email</label>
+          <input type="email" id="email" name="email" required
+                 class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-green-300" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required
+                    class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-green-300"></textarea>
+        </div>
+
+        <button type="submit"
+                class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800 transition">
+          Submit
+        </button>
+      </form>
+      <p class="text-xs text-gray-500 mt-3">Note: This form is static. To activate, integrate with Formspree or Netlify Forms.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-center px-4 py-8 mt-12">
+    <p class="text-sm">
+      &copy; 2025 DrSpice Organics. All rights reserved.
+    </p>
+    <p class="text-sm mt-1">Email: admin@drspiceorganics.com</p>
+  </footer>
+
+</body>
+</html>

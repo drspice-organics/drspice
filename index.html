@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DrSpice Wellness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Mobile Drawer -->
+  <div id="drawer" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" onclick="toggleDrawer(false)">
+    <div class="bg-white w-64 h-full p-6" onclick="event.stopPropagation()">
+      <h2 class="text-xl font-bold mb-4">Explore Menu</h2>
+      <ul class="space-y-4">
+        <li><a href="plans.html" class="text-green-700 hover:underline">Meal Plans</a></li>
+        <li><a href="prescription.html" class="text-green-700 hover:underline">Prescriptions</a></li>
+        <li><a href="https://drspiceorganics.com/shop" class="text-green-700 hover:underline">View Products</a></li>
+        <li><a href="about.html" class="text-green-700 hover:underline">About</a></li>
+        <li><a href="contacts.html" class="text-green-700 hover:underline">Contacts</a></li>
+        <li><a href="testimony.html" class="text-green-700 hover:underline">Testimonials</a></li>
+        <li><a href="https://drspiceorganics.com/shop" class="text-green-700 hover:underline">Shop Now</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="bg-green-700 text-white p-4 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">DrSpice</h1>
+      <nav class="space-x-4 text-sm hidden md:block">
+        <a href="plans.html" class="hover:underline">Meal Plans</a>
+        <a href="prescription.html" class="hover:underline">Prescriptions</a>
+        <a href="https://drspiceorganics.com/shop" class="hover:underline">View Products</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="contacts.html" class="hover:underline">Contacts</a>
+        <a href="testimony.html" class="hover:underline">Testimonials</a>
+      </nav>
+      <button class="md:hidden block" onclick="toggleDrawer(true)">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-green-50" id="hero">
+    <h2 class="text-4xl font-bold mb-4">Welcome to DrSpice Wellness Hub</h2>
+    <p class="max-w-xl mx-auto text-gray-600 mb-6">
+      Access natural prescriptions, curated meal plans, herbal product guides and real testimonies from our healing journey.
+    </p>
+    <div class="flex justify-center space-x-4">
+      <button onclick="toggleDrawer(true)"
+              class="bg-green-600 text-white px-6 py-2 rounded-full shadow hover:bg-green-700 transition">
+        Explore
+      </button>
+      <a href="https://drspiceorganics.com/shop"
+         class="bg-white border border-green-600 text-green-700 px-6 py-2 rounded-full shadow hover:bg-green-100 transition">
+        Shop Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Sections (Preview Only) -->
+  <section class="py-12 px-4 max-w-6xl mx-auto" id="mealplans">
+    <h3 class="text-2xl font-bold mb-4">Meal Plans</h3>
+    <p class="text-gray-700">Download healthy eating guides tailored to detox, weight loss, or special conditions.</p>
+  </section>
+
+  <section class="py-12 px-4 max-w-6xl mx-auto bg-gray-50" id="prescriptions">
+    <h3 class="text-2xl font-bold mb-4">Prescriptions</h3>
+    <p class="text-gray-700">Access organic remedies for various health conditions.</p>
+  </section>
+
+  <section class="py-12 px-4 max-w-6xl mx-auto" id="products">
+    <h3 class="text-2xl font-bold mb-4">Products</h3>
+    <p class="text-gray-700">View our full herbal collection and their uses.</p>
+  </section>
+
+  <section class="py-12 px-4 max-w-6xl mx-auto bg-gray-50" id="about">
+    <h3 class="text-2xl font-bold mb-4">About Us</h3>
+    <p class="text-gray-700">DrSpice Organics is a trusted brand in herbal and natural wellness solutions, with years of success stories.</p>
+  </section>
+
+  <section class="py-12 px-4 max-w-6xl mx-auto" id="contacts">
+    <h3 class="text-2xl font-bold mb-4">Contact</h3>
+    <p class="text-gray-700">
+      📍 Nairobi, Nacico Chambers 3rd floor<br>
+      📱 0727 175 708<br>
+      📧 admin@drspiceorganics.com
+    </p>
+  </section>
+
+  <section class="py-12 px-4 max-w-6xl mx-auto bg-gray-50" id="testimonials">
+    <h3 class="text-2xl font-bold mb-4">Testimonials</h3>
+    <p class="text-gray-700">Real feedback from our happy and healed clients.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-center px-4 py-8">
+    <h4 class="text-xl font-bold mb-2">Dr Spice Organics</h4>
+    <p class="max-w-3xl mx-auto mb-4 text-sm">
+      Dr Spice Organics provides premium herbal remedies crafted from 100% organic ingredients.
+      Our mission is to support your health naturally with safe, effective solutions for holistic wellness.
+    </p>
+    <p class="text-sm">
+      📍 Nairobi: +254727 175 708 &nbsp; | &nbsp;
+      Nakuru: +254726 760 517 &nbsp; | &nbsp;
+      Kiambu (Ruiru): +254 113 853 878<br/>
+      ✉️ admin@drspiceorganics.com
+    </p>
+    <p class="mt-4 text-xs">&copy; 2025 DrSpice Organics. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleDrawer(show) {
+      const drawer = document.getElementById('drawer');
+      drawer.classList.toggle('hidden', !show);
+    }
+  </script>
+
+</body>
+</html>

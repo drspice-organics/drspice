@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials - DrSpice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-green-700 text-white p-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">DrSpice | Testimonials</h1>
+      <a href="index.html" class="text-sm hover:underline">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold text-center mb-8">Client Testimonies</h2>
+
+    <div id="videoList" class="grid md:grid-cols-2 gap-6">
+      <!-- Videos will be inserted here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-center px-4 py-8 mt-10">
+    <p class="text-sm">
+      &copy; 2025 DrSpice Organics. All rights reserved.
+    </p>
+    <p class="text-sm mt-1">Email: admin@drspiceorganics.com</p>
+  </footer>
+
+  <script>
+    const folder = "testimonies/";
+    const videos = [
+      { file: "healing1.mp4", title: "Chronic Pain Recovery" },
+      { file: "skin-clear.mp4", title: "Clear Skin Transformation" },
+      { file: "detox-success.mp4", title: "Full Body Detox Success" }
+      // Add more here as needed
+    ];
+
+    const container = document.getElementById("videoList");
+
+    videos.forEach(video => {
+      const videoCard = document.createElement("div");
+      videoCard.className = "bg-white p-4 rounded shadow";
+
+      videoCard.innerHTML = `
+        <h3 class="font-semibold mb-2">${video.title}</h3>
+        <video controls class="w-full rounded">
+          <source src="${folder + video.file}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      `;
+
+      container.appendChild(videoCard);
+    });
+  </script>
+
+</body>
+</html>

@@ -8,71 +8,159 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
+<!-- Header -->
 <header class="bg-green-700 text-white shadow-md sticky top-0 z-50">
   <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
     <h1 class="text-2xl font-bold">🌿 DrSpice Products</h1>
-    <a href="index.html" class="hover:underline">🏠 Home</a>
+    <nav class="space-x-4">
+      <a href="index.html" class="hover:underline">🏠 Home</a>
+      <a href="https://www.tiktok.com/search?q=dr%20spices%20organics&t=1752057376387" target="_blank" class="hover:underline">🎵 TikTok</a>
+    </nav>
   </div>
 </header>
 
-<section class="py-12 px-4 max-w-6xl mx-auto">
-  <h2 class="text-4xl font-extrabold text-green-800 text-center mb-6">Explore Our Herbal Products</h2>
-  <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
-    Discover our range of natural remedies. Each product card gives you full details: usage, benefits, dosage recommendations, client ratings, and a direct purchase link.  
+<!-- Section Title & Search -->
+<section class="py-8 px-4 max-w-6xl mx-auto">
+  <h2 class="text-4xl font-extrabold text-green-800 text-center mb-4">Explore Our Herbal Products</h2>
+  <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+    Discover our full range of natural remedies. Each product card contains details about usage, benefits, dosage, ratings, and purchase links.
   </p>
 
-  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-    <!-- Product Card: Cayenne Pepper -->
-    <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-      <img 
-        src="https://raw.githubusercontent.com/drspice-organics/drspice/main/products/Cayenne%20pepper%20500-1749551712-0.jpeg" 
-        alt="Cayenne Pepper" 
-        class="w-full h-48 object-cover"
-      >
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-green-700 mb-2">🌶️ Cayenne Pepper</h3>
-        <p class="text-gray-700 text-sm mb-4">
-          A fiery spice made from dried chili pods, celebrated not just for its heat but its health benefits. Rich in capsaicin, it supports digestion, boosts metabolism, helps burn fat, improves circulation, reduces inflammation, and aids pain relief.
-        </p>
-
-        <div class="mb-3">
-          <h4 class="font-semibold text-gray-800">💊 Suggested Dosage:</h4>
-          <p class="text-sm text-gray-600">¼–½ teaspoon daily in meals or as directed by your health provider.</p>
-        </div>
-
-        <div class="mb-3">
-          <h4 class="font-semibold text-gray-800">⭐ Client Rating:</h4>
-          <p class="text-sm text-yellow-500">★★★★☆ (4.5/5)</p>
-        </div>
-
-        <div class="mb-3">
-          <h4 class="font-semibold text-gray-800">🩺 Helps With:</h4>
-          <ul class="list-disc list-inside text-sm text-gray-600">
-            <li>Improves digestion & metabolism</li>
-            <li>Fat burning & weight loss</li>
-            <li>Better circulation & energy</li>
-            <li>Reduces inflammation & pain</li>
-            <li>Detox & immune support</li>
-          </ul>
-        </div>
-
-        <a href="https://www.drspiceorganics.com/product?cayenne-pepper150-grams"
-           target="_blank"
-           class="inline-block mt-4 bg-green-600 text-white px-4 py-2 rounded-full shadow hover:bg-green-700 transition">
-          🛒 Buy Now
-        </a>
-      </div>
-    </div>
-
-    <!-- More product cards go here … -->
-
+  <!-- Search Bar -->
+  <div class="flex justify-center mb-6">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="🔍 Search products…" 
+      class="w-full max-w-md px-4 py-2 rounded-full border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+      oninput="renderProducts()"
+    >
   </div>
+
+  <!-- Product Grid -->
+  <div id="productsContainer" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Products will be dynamically rendered here -->
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex justify-center mt-10 space-x-2" id="pagination"></div>
 </section>
 
+<!-- Footer -->
 <footer class="bg-green-700 text-white text-center px-6 py-6 mt-12">
   <p class="text-sm">&copy; 2025 DrSpice Organics. All rights reserved. | <a href="https://drspiceorganics.com" class="underline">Visit Main Site</a></p>
 </footer>
 
+<script>
+const products = [
+  {
+    name: "🌶️ Cayenne Pepper",
+    image: "https://raw.githubusercontent.com/drspice-organics/drspice/main/products/Cayenne%20pepper%20500-1749551712-0.jpeg",
+    description: "A fiery spice made from dried chili pods, celebrated for its heat and health benefits.",
+    dosage: "¼–½ teaspoon daily in meals or as directed.",
+    rating: "★★★★☆ (4.5/5)",
+    benefits: [
+      "Improves digestion & metabolism",
+      "Fat burning & weight loss",
+      "Better circulation & energy",
+      "Reduces inflammation & pain",
+      "Detox & immune support"
+    ],
+    link: "https://www.drspiceorganics.com/product?cayenne-pepper150-grams"
+  },
+  // You can replicate the structure above for ~50 products.
+  // Simply push more objects here, adjusting name, image, description, etc.
+  // …
+];
+
+// Placeholder to simulate ~50 products
+for (let i = 2; i <= 50; i++) {
+  products.push({
+    name: `🌿 Product ${i}`,
+    image: "https://via.placeholder.com/300x200?text=Product+" + i,
+    description: "Description for product " + i,
+    dosage: "Use as directed.",
+    rating: "★★★★☆ (4/5)",
+    benefits: [
+      "Benefit 1",
+      "Benefit 2",
+      "Benefit 3"
+    ],
+    link: "#"
+  });
+}
+
+const PRODUCTS_PER_PAGE = 10;
+let currentPage = 1;
+
+function renderProducts() {
+  const container = document.getElementById('productsContainer');
+  const pagination = document.getElementById('pagination');
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  
+  container.innerHTML = "";
+  pagination.innerHTML = "";
+
+  const filteredProducts = products.filter(p => 
+    p.name.toLowerCase().includes(searchTerm) ||
+    p.description.toLowerCase().includes(searchTerm)
+  );
+
+  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+  const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const end = start + PRODUCTS_PER_PAGE;
+
+  filteredProducts.slice(start, end).forEach(product => {
+    const card = document.createElement('div');
+    card.className = "bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden";
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <h3 class="text-2xl font-bold text-green-700 mb-2">${product.name}</h3>
+        <p class="text-gray-700 text-sm mb-4">${product.description}</p>
+
+        <div class="mb-3">
+          <h4 class="font-semibold text-gray-800">💊 Dosage:</h4>
+          <p class="text-sm text-gray-600">${product.dosage}</p>
+        </div>
+
+        <div class="mb-3">
+          <h4 class="font-semibold text-gray-800">⭐ Rating:</h4>
+          <p class="text-sm text-yellow-500">${product.rating}</p>
+        </div>
+
+        <div class="mb-3">
+          <h4 class="font-semibold text-gray-800">🩺 Benefits:</h4>
+          <ul class="list-disc list-inside text-sm text-gray-600">
+            ${product.benefits.map(b => `<li>${b}</li>`).join('')}
+          </ul>
+        </div>
+
+        <a href="${product.link}" target="_blank" class="inline-block mt-4 bg-green-600 text-white px-4 py-2 rounded-full shadow hover:bg-green-700 transition">
+          🛒 Buy Now
+        </a>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+
+  // Pagination controls
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.className = `px-3 py-1 rounded-full ${i === currentPage ? 'bg-green-700 text-white' : 'bg-white border text-green-700 hover:bg-green-100'}`;
+    btn.textContent = i;
+    btn.onclick = () => {
+      currentPage = i;
+      renderProducts();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    pagination.appendChild(btn);
+  }
+}
+
+// Initial render
+renderProducts();
+
+</script>
 </body>
 </html>
